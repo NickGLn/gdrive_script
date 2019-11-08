@@ -1,4 +1,7 @@
+/.idea/**
 /venv/**
 *.json
 /.credentials/**
 /*pycache__/**
+download_logistic_report.py
+refresh_calls&emails_report.py
