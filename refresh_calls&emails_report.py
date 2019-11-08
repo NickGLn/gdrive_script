@@ -9,7 +9,7 @@ import excel_updater as xl_upd
 from apiclient import discovery
 from bs4 import BeautifulSoup as bs
 from datetime import datetime, timedelta, date
-from gdrive_files_manage import uploadFile_gdrive, listFiles_gdrive_folder, deleteFile_gdrive, listFiles
+from gdrive_files_manage import uploadFile, listFiles_folder, deleteFile, listFiles
 
 SCOPES = 'https://www.googleapis.com/auth/drive'
 CLIENT_SECRET_FILE = 'client_id.json'
@@ -20,7 +20,7 @@ http = credentials.authorize(httplib2.Http())
 drive_service = discovery.build('drive', 'v3', http=http)
 
 bittrix_session = requests.Session()
-bittrix_session.auth = ('nikolay@idsiberian.ru', 'dancer123')
+bittrix_session.auth = ('', '')
 date = datetime.now().date() - timedelta(1)
 #date = datetime.strptime('05.07.2019', '%d.%m.%Y')
 params = (('set_filter', 'Y'),

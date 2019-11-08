@@ -20,7 +20,7 @@ def listFiles(service, size):
             print('{0} ({1})'.format(item['name'], item['id']))
 
 
-def listFiles_gdrive_folder(service, query):
+def listFiles_folder(service, query):
     list_files = []
     results = service.files().list(q=query, fields="nextPageToken, files(id, name)").execute()
     items = results.get('files', [])
@@ -32,11 +32,11 @@ def listFiles_gdrive_folder(service, query):
     return list_files
 
 
-def deleteFile_gdrive(service, file_id):
+def deleteFile(service, file_id):
     service.files().delete(fileId=file_id).execute()
 
 
-def uploadFile_gdrive(service, filename, filepath, mimetype, *folder_key):
+def uploadFile(service, filename, filepath, mimetype, *folder_key):
     file_metadata = {'name': filename, "parents": folder_key}
     media = MediaFileUpload(filepath,
                             mimetype=mimetype)
